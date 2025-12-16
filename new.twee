@@ -1,0 +1,223 @@
+:: StoryTitle
+new
+
+
+:: StoryData
+{
+  "ifid": "AB643D8E-DF43-48F7-AE50-972404723FE3",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Untitled Passage",
+  "zoom": 1
+}
+
+
+:: UI-Nav {"position":"650,50","size":"100,100"}
+<div class="navbar">(link: "課程目標")[(goto:"課程目標")] • (link: "認識生詞")[(goto:"隨機生詞練習")] • (link:"華語生詞配對")[(goto:"生詞字謎配對")]• (link:"聽音選字")[(goto:"口說挑戰")]• (link:"填字遊戲")[(goto:"填字遊戲")] </div>
+
+
+:: Untitled Passage {"position":"475,100","size":"100,100"}
+歡迎光臨~
+讓我們一起學習中文吧！
+今天要學習的內容是〈我要買筆電〉
+製作一個連結，可連結到下一頁[[課程目標]] 
+
+本教材內容節選並改編自《時代華語 第二冊》(輔仁大學華語文教學中心)，僅供教學與學習使用。
+
+(link:"按這裡也可以")[(goto:"課程目標")] 
+
+
+:: 口說挑戰 {"position":"1150,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/say_word/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
+
+
+:: 填字遊戲 {"position":"1025,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/write_word/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
+
+
+:: 生詞字謎搜尋 {"position":"900,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/search_word/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
+
+
+:: 生詞教學 {"position":"475,400","size":"100,100"}
+''生詞瀏覽''
+<div class="grid2">
+(for: each _it, ...$vocab_all)[
+  <div class="card">{(if: _it contains 'img')[
+      <img class="vocab-img" src="(print: _it's 'img')" alt="(print: _it's 'hanzi')">
+    ]}<h3>
+      <span class='hanzi-xl'>(print: _it's 'hanzi')</span>
+      (print: "<span class='hint hint-xl' data-hint='" + (_it's 'pinyin') + "'>ⓘ</span>")
+    </h3>
+    詞性：''(print: _it's 'tag')''<br>
+    意思：''(print: _it's 'def')''<br>
+    
+      ]
+      
+[[遊戲首頁]] 
+
+
+:: 聽音選字 {"position":"1275,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/listenword_chooseword/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
+
+
+:: 華語生詞配對 {"position":"775,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/match_game/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
+
+
+:: 課程目標 {"position":"475,250","size":"100,100"}
+{
+(set: $lessonID to "科技產品購買")
+
+(set: $vocab_all to (array:
+(datamap:"hanzi","筆電","pinyin","bǐdiàn","def","laptop; notebook computer","tag","N"),
+(datamap:"hanzi","產品","pinyin","chǎnpǐn","def","product","tag","N"),
+(datamap:"hanzi","平板","pinyin","píngbǎn","def","tablet computer","tag","N"),
+(datamap:"hanzi","差別","pinyin","chābié","def","difference","tag","N"),
+(datamap:"hanzi","說明","pinyin","shuōmíng","def","explain; explanation","tag","V/N"),
+(datamap:"hanzi","功能","pinyin","gōngnéng","def","function; feature","tag","N"),
+(datamap:"hanzi","輕","pinyin","qīng","def","light (in weight)","tag","A"),
+(datamap:"hanzi","出差","pinyin","chūchāi","def","to go on a business trip","tag","V"),
+(datamap:"hanzi","不如","pinyin","bùrú","def","not as good as","tag","V"),
+(datamap:"hanzi","大多數","pinyin","dàduōshù","def","most; majority","tag","Det"),
+(datamap:"hanzi","背包","pinyin","bèibāo","def","backpack","tag","N"),
+(datamap:"hanzi","不管","pinyin","bùguǎn","def","no matter; regardless","tag","Conj"),
+(datamap:"hanzi","跟","pinyin","gēn","def","with; and","tag","Prep"),
+(datamap:"hanzi","好用","pinyin","hǎoyòng","def","easy to use","tag","A"),
+(datamap:"hanzi","新聞","pinyin","xīnwén","def","news","tag","N"),
+(datamap:"hanzi","抱怨","pinyin","bàoyuàn","def","to complain","tag","V"),
+(datamap:"hanzi","電池","pinyin","diànchí","def","battery","tag","N"),
+(datamap:"hanzi","正常","pinyin","zhèngcháng","def","normal","tag","A"),
+(datamap:"hanzi","保證","pinyin","bǎozhèng","def","to guarantee","tag","V"),
+(datamap:"hanzi","修理","pinyin","xiūlǐ","def","to repair","tag","V"),
+(datamap:"hanzi","恐怕","pinyin","kǒngpà","def","I'm afraid that…","tag","Adv"),
+(datamap:"hanzi","改天","pinyin","gǎitiān","def","another day","tag","Adv"),
+(datamap:"hanzi","傳真機","pinyin","chuánzhēnjī","def","fax machine","tag","N"),
+(datamap:"hanzi","傳真","pinyin","chuánzhēn","def","to fax","tag","V"),
+(datamap:"hanzi","打折","pinyin","dǎzhé","def","to discount","tag","V"),
+(datamap:"hanzi","超過","pinyin","chāoguò","def","to exceed","tag","V"),
+(datamap:"hanzi","把握","pinyin","bǎwò","def","to seize; to grasp (opportunity)","tag","V"),
+(datamap:"hanzi","大約","pinyin","dàyuē","def","approximately","tag","Adv"),
+(datamap:"hanzi","能夠","pinyin","nénggòu","def","to be able to","tag","V"),
+(datamap:"hanzi","真","pinyin","zhēn","def","really","tag","Adv"),
+(datamap:"hanzi","皮","pinyin","pí","def","leather","tag","N"),
+(datamap:"hanzi","上班族","pinyin","shàngbānzú","def","office worker","tag","N"),
+(datamap:"hanzi","保證書","pinyin","bǎozhèngshū","def","warranty card","tag","N")
+))
+
+(set: $vocab_devices to (array:
+(datamap:"hanzi","筆電","pinyin","bǐdiàn","def","laptop","tag","N"),
+(datamap:"hanzi","平板","pinyin","píngbǎn","def","tablet","tag","N"),
+(datamap:"hanzi","產品","pinyin","chǎnpǐn","def","product","tag","N"),
+(datamap:"hanzi","功能","pinyin","gōngnéng","def","function","tag","N"),
+(datamap:"hanzi","電池","pinyin","diànchí","def","battery","tag","N"),
+(datamap:"hanzi","傳真機","pinyin","chuánzhēnjī","def","fax machine","tag","N"),
+(datamap:"hanzi","皮","pinyin","pí","def","leather","tag","N"),
+(datamap:"hanzi","保證書","pinyin","bǎozhèngshū","def","warranty card","tag","N")
+))
+
+(set: $vocab_actions to (array:
+(datamap:"hanzi","說明","pinyin","shuōmíng","def","explain","tag","V/N"),
+(datamap:"hanzi","出差","pinyin","chūchāi","def","go on business trip","tag","V"),
+(datamap:"hanzi","抱怨","pinyin","bàoyuàn","def","to complain","tag","V"),
+(datamap:"hanzi","修理","pinyin","xiūlǐ","def","to repair","tag","V"),
+(datamap:"hanzi","傳真","pinyin","chuánzhēn","def","to fax","tag","V"),
+(datamap:"hanzi","打折","pinyin","dǎzhé","def","to discount","tag","V"),
+(datamap:"hanzi","超過","pinyin","chāoguò","def","to exceed","tag","V"),
+(datamap:"hanzi","把握","pinyin","bǎowò","def","to seize opportunity","tag","V"),
+(datamap:"hanzi","能夠","pinyin","nénggòu","def","can; be able to","tag","V")
+))
+
+(set: $vocab_other to (array:
+(datamap:"hanzi","差別","pinyin","chābié","def","difference","tag","N"),
+(datamap:"hanzi","輕","pinyin","qīng","def","light","tag","A"),
+(datamap:"hanzi","不如","pinyin","bùrú","def","not as good as","tag","V"),
+(datamap:"hanzi","大多數","pinyin","dàduōshù","def","most","tag","Det"),
+(datamap:"hanzi","背包","pinyin","bèibāo","def","backpack","tag","N"),
+(datamap:"hanzi","不管","pinyin","bùguǎn","def","regardless","tag","Conj"),
+(datamap:"hanzi","跟","pinyin","gēn","def","with","tag","Prep"),
+(datamap:"hanzi","好用","pinyin","hǎoyòng","def","easy to use","tag","A"),
+(datamap:"hanzi","新聞","pinyin","xīnwén","def","news","tag","N"),
+(datamap:"hanzi","正常","pinyin","zhèngcháng","def","normal","tag","A"),
+(datamap:"hanzi","保證","pinyin","bǎozhèng","def","guarantee","tag","V"),
+(datamap:"hanzi","恐怕","pinyin","kǒngpà","def","perhaps; I'm afraid","tag","Adv"),
+(datamap:"hanzi","改天","pinyin","gǎitiān","def","another day","tag","Adv"),
+(datamap:"hanzi","真","pinyin","zhēn","def","really","tag","Adv"),
+(datamap:"hanzi","上班族","pinyin","shàngbānzú","def","office worker","tag","N")
+))
+
+(set: $textParas to (array:
+"建置中"
+))
+
+(set: $progress to (datamap:"vocab",0,"pattern",0,"text",0,"practice",0))
+(set: $score to (datamap:"vocab",0,"pattern",0,"text",0,"practice",0))
+(set: $seenVocab to (dataset:))
+(set: $wrongBank to (dataset:))
+(set: $notes to "")
+
+}
+學完這課程，希望你能學會：
+1.學會各類產品資訊
+2.可以表達自己需要的產品資訊
+
+讓我們先從[[生詞教學]] 開始吧！
+
+
+:: 遊戲首頁 {"position":"875,50","size":"100,100"}
+(display:"UI-Nav")
+
+選一個遊戲來玩玩看吧！
+
+[[隨機生詞練習]]
+[[華語生詞配對]]
+[[生詞字謎搜尋]]
+[[口說挑戰]]
+[[聽音選字]]
+[[填字遊戲]]
+
+
+:: 隨機生詞練習 {"position":"650,325","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://w0982163292-bit.github.io/remeber_cad/" 
+  width="100%" 
+  height="800" 
+  style="border:1px solid #ccc;">
+</iframe>
